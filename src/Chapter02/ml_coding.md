@@ -10,6 +10,19 @@ This chapter is focusing on ML coding questions. We will list some of the most p
     - ➤ In Progress  
     - ☑ Completed  
   
+- **Parameters**  
+    - n: # of instances, or # of rows in a matrix_1  
+    - d: # of features, or # of columns in a matrix_1  
+    - m: # of rows in a matrix_2
+    - k: # of columns in a matrix_2
+  
+- **Template**  
+    - Please use the template in [0000_template.ipynb](ipynb_codes/0000_template.ipynb) to implement your code.
+    - Upate your the code, customized unittest with at least these 3 types of test cases:
+        1. Dimension mismatch and corner cases
+        2. Normal cases with all possible input types
+        3. Extreme cases
+  
 ## Linear Algebra/Probability/Statistics
 
 <table>
@@ -18,7 +31,7 @@ This chapter is focusing on ML coding questions. We will list some of the most p
       <th rowspan="3">Status</th>
       <th rowspan="3">Question Name</th>
       <th rowspan="3">Source</th>
-      <th rowspan="3">Python Implementation</th>
+      <th rowspan="3">Ipynb Implementation</th>
       <th colspan="4">Complexity</th>
     </tr>
     <tr>
@@ -37,11 +50,11 @@ This chapter is focusing on ML coding questions. We will list some of the most p
       <td>☐</td>
       <td>0001 Matrix Times Vector</td>
       <td><a href="https://www.deep-ml.com/problem/Matrix%20times%20Vector">deep-ml-0001-Matrix times Vector</a></td>
-      <td><a href="path/to/your/file.md">Link Text</a></td>
-      <td>O(n³)</td>
-      <td>O(n²)</td>
-      <td>O(n)</td>
-      <td>O(n)</td>
+      <td><a href="ipynb_codes/0001_matrix_times_vector.ipynb">0001_matrix_times_vector.ipynb</a></td>
+      <td>O(nd)</td>
+      <td>O(d)</td>
+      <td>O(nd)</td>
+      <td>O(d)</td>
     </tr>
   </tbody>
 </table>
