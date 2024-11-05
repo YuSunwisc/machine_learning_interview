@@ -16,7 +16,7 @@ This repository serves as a comprehensive guide for machine learning interview p
 | Status | Chapter   | Description                                                                                     |
 | ------ | --------- | ----------------------------------------------------------------------------------------------- |
 | ☐      | Chapter 1 | [General Coding (Algorithms and Data Structures)](src/Chapter01/lc_coding.md)                  |
-| ☐      | Chapter 2 | [Machine Learning Coding](src/Chapter02/ml_coding.md)                                           |
+| ➤      | Chapter 2 | [Machine Learning Coding](src/Chapter02/ml_coding.md)                                           |
 | ☐      | Chapter 3 | [ML System Design (Updated in 2023)](src/Chapter03/ml_system_design.md)                         |
 | ☐      | Chapter 4 | [ML Fundamentals & Theory](src/Chapter04/ml_fundamental.md)                                     |
 | ☐      | Chapter 5 | [Behavioral Interview Techniques](src/Chapter05/behavior.md)                                    |
