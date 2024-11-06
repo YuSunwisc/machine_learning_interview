@@ -1,5 +1,5 @@
 # Machine Learning Interview Guide
-_Last updated: 2024-11-04_  
+_Last updated: 2024-11-05_  
 _Owner: Yu Sun_
 
 
@@ -24,6 +24,44 @@ This chapter is focusing on ML coding questions. We will list some of the most p
         3. Extreme cases
     - Update this markdown table with your implementation, with full time and space complexity analysis.
   
+## Table template
+<table>
+  <thead>
+    <tr>
+      <th rowspan="3">Status</th>
+      <th rowspan="3">Question Name</th>
+      <th rowspan="3">Source</th>
+      <th rowspan="3">Ipynb Implementation</th>
+      <th rowspan="3">Difficulty</th>
+      <th colspan="4">Complexity</th>
+    </tr>
+    <tr>
+      <th colspan="2">Training</th>
+      <th colspan="2">Inference</th>
+    </tr>
+    <tr>
+      <th>Time</th>
+      <th>Space</th>
+      <th>Time</th>
+      <th>Space</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>☑</td>
+      <td>0000 Template</td>
+      <td><a href="https://www.google.com">0000_template</a></td>
+      <td><a href="ipynb_codes/0000_template.ipynb">0000_template.ipynb</a></td>
+      <td><span style="color:#28a745">Easy</span></td>
+      <td>O()</td>
+      <td>O()</td>
+      <td>O()</td>
+      <td>O()</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## Linear Algebra/Probability/Statistics
 
 <table>
@@ -713,6 +751,43 @@ This chapter is focusing on ML coding questions. We will list some of the most p
 ## CV
 
 ## NLP and LLM
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="3">Status</th>
+      <th rowspan="3">Question Name</th>
+      <th rowspan="3">Source</th>
+      <th rowspan="3">Ipynb Implementation</th>
+      <th rowspan="3">Difficulty</th>
+      <th colspan="4">Complexity</th>
+    </tr>
+    <tr>
+      <th colspan="2">Training</th>
+      <th colspan="2">Inference</th>
+    </tr>
+    <tr>
+      <th>Time</th>
+      <th>Space</th>
+      <th>Time</th>
+      <th>Space</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>☑</td>
+      <td>0060 N-Gram</td>
+      <td><a href="https://en.wikipedia.org/wiki/N-gram">google-0060_N_Gram</a></td>
+      <td><a href="ipynb_codes/0060_n_gram.ipynb">0060_n_gram.ipynb</a></td>
+      <td><span style="color:#ffc107">Medium</span></td>
+      <td>O(N(n - N))</td>
+      <td>O(N(n - N))</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## RL
 
