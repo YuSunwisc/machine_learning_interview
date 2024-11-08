@@ -20,7 +20,9 @@ This chapter is focusing on ML coding questions. We will list some of the most p
 
 ### Top public Leetcode problems websites
 
-- [Leetcode](https://leetcode.com)
+- [Leetcode](https://leetcode.com), common
+- [PKU JudgeOnline](https://poj.org), hard
+- [luogu](https://lougu.com.cn), hard
 
 ### Top Starred Repositories for Leetcode problems
 
