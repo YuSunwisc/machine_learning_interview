@@ -1,0 +1,245 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym,amssymb,amsmath,amsfonts,amsthm,arydshln,calc,comment,hyperref,mathrsfs,placeins,xcolor,graphicx,longtable,bm,cite,blkarray,bbm,dsfont}
+\usepackage{hyperref}
+\usepackage[notref,notcite]{showkeys}
+\usepackage{tikz, tikz-cd}
+%\usetikzlibrary{matrix}
+\usetikzlibrary{fit, positioning, arrows}
+\hypersetup{colorlinks=true}
+
+\setlength{\textwidth}{6.4in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{-0.6in}
+\setlength{\oddsidemargin}{.0in}
+\setlength{\evensidemargin}{.0in}
+
+
+%%%%%%%%%%%%%%%%%%%%%% all new theorem def
+
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{assumption}{Assumption}
+\numberwithin{assumption}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{remark}{Remark}
+\numberwithin{remark}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{prop}{Proposition}
+\numberwithin{prop}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{corollary}{Corollary}
+\numberwithin{corollary}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{example}{Example} 
+\numberwithin{example}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{question}{Question} 
+\numberwithin{question}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{problem}{Problem} 
+\numberwithin{problem}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{conjecture}{Conjecture}
+\numberwithin{conjecture}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{append}{Appendix}  %%Yu
+\numberwithin{append}{section} % counting in section, can also be changed by {subsection}
+\newtheorem{property}{Property}  %%Yu  
+\numberwithin{property}{section} % counting in section, can also be changed by {subsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% labeled equation
+
+\makeatletter
+\newcommand*\@dblLabelI{}
+\newcommand*\@dblLabelII {}
+\newcommand*\@dblequationAux {}
+
+\def\@dblequationAux #1,#2,%
+{\def\@dblLabelI{\label{#1}}\def\@dblLabelII{\label{#2}}}
+
+\newcommand*{\doubleequation}[3][]{%
+	\par\vskip\abovedisplayskip\noindent
+	\if\relax\detokenize{#1}\relax
+	\let\@dblLabelI\@empty
+	\let\@dblLabelII\@empty
+	\else % we assume here that the optional argument
+	% has the required shape A,B
+	\@dblequationAux #1,%
+	\fi
+	\makebox[0.5\linewidth-1.5em]{%
+		\hspace{\stretch2}%
+		\makebox[0pt]{$\displaystyle #2$}%
+		\hspace{\stretch1}%
+	}%
+	\makebox[0.5\linewidth-1.5em]{%
+		\hspace{\stretch1}%
+		\makebox[0pt]{$\displaystyle #3$}%
+		\hspace{\stretch2}%
+	}%
+	\makebox[3em][r]{(%
+		\refstepcounter{equation}\theequation\@dblLabelI, 
+		\refstepcounter{equation}\theequation\@dblLabelII)}%
+	\par\vskip\belowdisplayskip
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% all new equation def
+
+\def\beq{ \begin{equation} }
+	\def\eeq{ \end{equation} }
+\newenvironment{seq}{\beq\small}{\eeq} % Small equation (Yu)
+\newenvironment{teq}{\beq\tiny}{\eeq} % Tiny equation (Yu)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% all new skip def
+
+\def\mn{\medskip\noindent}
+\def\ms{\medskip}
+\def\bs{\bigskip}
+\def\bn{\bigskip\noindent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\def\ep{\epsilon}
+\def\nass{\noalign{\smallskip}}
+\def\nams{\noalign{\smallskip}}
+\def\square{\vcenter{\vbox{\hrule height .4pt
+			\hbox{\vrule width .4pt height 5pt \kern 5pt
+				\vrule width .4pt} \hrule height .4pt}}}
+\def\eopt{\hfill$\square$}
+\def\NN{\mathbb{N}}
+\def\RR{\mathbb{R}}
+\def\ZZ{\mathbb{Z}}
+\def\eqd{\,{\buildrel d \over =}\,}
+\def\var{\hbox{var}\,}
+\def\hbr{\hfill\break}
+
+\def\P{{\mathbb P}}     % Probability (Louis)
+\def\E{{\mathbb E}}     % Expectation (Louis)
+\def\Var{{\mathbb Var}} % Variance (Yu)
+\def\cor{\mathrm{corr}^r}   % correlation (Yu)
+\def\<{{\langle}} %Louis
+\def\>{{\rangle}} %Louis
+\def\=d{{\stackrel{d}{=}}}  % Yu: same in distribution
+\newenvironment{pf}{\noindent\emph{Proof \,}}{\mbox{}\qed} % Louis
+%\newcommand\=d{\stackrel{\mathclap{\normalfont\mbox{d}}}{=}}  
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\def\d{\mathrm{d}}   %derivative   
+\def\capo{\mathcal{O}}   % capital O order
+\def\smallo{\mathcal{o}}   % small O order
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% new fucntion & distributions
+
+\def\B{\mathop{\mathrm{B}}}		% Beta function
+\def\Ga{\mathop{\mathrm{Ga}}}   % Ga distribution
+\def\Be{\mathop{\mathrm{Be}}}	% Beta distribution
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% booktab, have no vertical lines
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\usepackage[skip=0.5\baselineskip]{caption}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% project 3
+
+\def\vecsig{\bm{\sigma}}   %deterministic vector sigma
+\def\veci{\bm{i}}   %deterministic vector i
+\def\ctree{\mathcal{T}}   %collection of trees
+\def\csplit{\mathcal{S}}   %collection of splits
+\def\eff{\mathscr{R}_{\textnormal{eff}}}   %effective resistance
+
+
+
+\usepackage{mathtools}
+
+\newcommand{\of}[1]{\left(#1\right)}
+\newcommand{\off}[1]{\left[#1\right]}
+\newcommand{\offf}[1]{\left\{#1\right\}}
+\newcommand{\aabs}[1]{\left|#1\right|}
+\newcommand{\onorm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\ang}[1]{\left\langle#1\right\rangle}
+
+
+\def\bbX{\mathbb X}
+\def\bbR{\mathbb R}
+\def\bbS{\mathbb S}
+\def\mA{\mathbf A}
+\def\mQ{\mathbf Q}
+\def\mB{\mathbf B}
+\def\mX{\mathbf X}
+\def\mY{\mathbf Y}
+\def\mx{\mathbf x}
+\def\mv{\mathbf v}
+\def\mq{\mathbf q}
+\def\my{\mathbf y}
+\def\mzero{\mathbf 0}
+\def\mtheta{\boldsymbol{\theta}}
+\def\mepsilon{\boldsymbol{\epsilon}}
+\def\tR{\mathcal R}
+\def\tH{\mathcal H}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\usepackage{CJKutf8}
+
+\begin{document}
+	\begin{CJK}{UTF8}{gbsn}  
+	\title{2024  Fall Senior  MLE   数据结构知识点}
+	\author{Yu Sun}
+	
+	
+	\date{\today}
+	\maketitle
+	\vspace{-1em}
+	
+
+		
+		
+		\setcounter{section}{0}
+		\section{一般流程}
+		\section{Python3 数据集结构}
+		\begin{itemize}
+			\item\href{https://cloud.tencent.com/developer/article/1907505}{运算符优先级教程}
+		\end{itemize}
+		\section{Numpy 数据集结构}
+		\begin{itemize}
+			 \item\href{https://www.runoob.com/numpy/numpy-ndarray-object.html}{Numpy 教程}
+			 \item  \href{https://blog.csdn.net/qq_17550379/article/details/78934529}{Numpy stack 讲解教程}: np.stack -- 本质上 axis 在哪里，就在哪一个维度上叠加，range 是 从 0 到 variable 的最大 axis, i.e., a, b, shape (3,4)
+			 \begin{itemize}
+			 	\item np.stack((a, b), axis = 0).shape =  shape (2, 3, 4)
+			 	\item np.stack((a, b), axis = 1).shape =  shape (3, 2, 4)
+			 	\item np.stack((a, b), axis = 2).shape =  shape (3, 4, 2)
+			 \end{itemize}
+		\end{itemize}
+		
+		\section{Pandas 数据集结构}		
+		
+	\end{CJK}  
+\end{document}
