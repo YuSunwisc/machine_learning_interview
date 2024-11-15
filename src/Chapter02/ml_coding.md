@@ -1,10 +1,11 @@
-# Machine Learning Interview Guide
-_Last updated: 2024-11-05_  
+# Machine Learning Coding Guide
+_Last updated: 2024-11-15_  
 _Owner: Yu Sun_
 
 
 This chapter is focusing on ML coding questions. We will list some of the most popular ML coding questions and try to solve them step by step.
 
+## Main Content
 - **Task Status Legend**  
     - ☐ Not Started  
     - ➤ In Progress  
