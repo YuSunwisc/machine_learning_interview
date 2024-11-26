@@ -1,5 +1,5 @@
 # Machine Learning Interview Guide
-_Last updated: 2024-11-20_  
+_Last updated: 2024-11-25_  
 _Owner: Yu Sun_
 
 ## Preface
