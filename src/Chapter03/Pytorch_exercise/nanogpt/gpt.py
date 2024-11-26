@@ -1,5 +1,10 @@
 # 这是一个根据 Transformer 和 GPT3 训练的一个 pre-train nanogpt
 
+# Souce: 
+#    - YouTube:  https://www.youtube.com/watch?v=kCc8FmEb1nY
+#    - Colab:    https://colab.research.google.com/drive/1JMLa53HDuA-i7ZBmqV7ZnA3c_fvtXnx-?usp=sharing#scrollTo=hoelkOrFY8bN
+#    - Github:   https://github.com/karpathy/ng-video-lecture/blob/master/gpt.py
+
 # 实现功能： 通过数据集训练，然后自动根据输出新的 token，next token 为最大概率的下一个 token
 # 功能差异：这只用了 decoder， 是有 mask 的， 并且由于任务机制只是生成，并没有根据输入生成对应的回答，所有没有 encoder 的部分和 cross attention；如果想添加 encoder 部分，只需要去掉 mask
 
