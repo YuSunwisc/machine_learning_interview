@@ -15,7 +15,7 @@ Here is a repo of machine learning design excercises.
 
 | Status | Topic   | Description                                                                                       |
 | ------ | --------- | ----------------------------------------------------------------------------------------------- |
-| ☑      | [nanogpt](/Pytorch_exercise/nanogpt) | Buidling only decoder nanogpt with Andrej                  |
+| ☑      | [nanogpt](Pytorch_exercise/nanogpt) | Buidling only decoder nanogpt with Andrej                  |
 | ☐      | Pytorch exercise | [Git repo: PyTorch-Tutorial-2nd](https://github.com/TingsongYu/PyTorch-Tutorial-2nd), [PDF](https://tingsongyu.github.io/PyTorch-Tutorial-2nd/chapter-1/1.6-JupyterNotebook-install.html)                                          |
 | ☐      |  |                         |
                     
