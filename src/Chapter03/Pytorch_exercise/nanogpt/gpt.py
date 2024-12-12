@@ -24,13 +24,25 @@ import torch.nn as nn
 from torch.nn import functional as F
 
 # hyperparameters
-batch_size = 64 # how many independent sequences will we process in parallel?
-block_size = 256 # what is the maximum context length for predictions?
+# batch_size = 64 # how many independent sequences will we process in parallel?
+# block_size = 256 # what is the maximum context length for predictions?
+# max_iters = 5000
+# eval_interval = 100
+# learning_rate = 3e-4
+# device = 'cuda' if torch.cuda.is_available() else 'cpu'
+# eval_iters = 200
+# n_embd = 384
+# n_head = 6
+# n_layer = 6
+# dropout = 0.2
+
+batch_size = 32 # how many independent sequences will we process in parallel?
+block_size = 128 # what is the maximum context length for predictions?
 max_iters = 5000
-eval_interval = 500
+eval_interval = 20
 learning_rate = 3e-4
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
-eval_iters = 200
+device = 'mps' if torch.backends.mps.is_available() else 'cpu'
+eval_iters = 20
 n_embd = 384
 n_head = 6
 n_layer = 6
@@ -245,31 +257,77 @@ class GPTLanguageModel(nn.Module):
             idx = torch.cat((idx, idx_next), dim=1) # (B, T+1)
         return idx
 
-model = GPTLanguageModel()
-m = model.to(device)
-# print the number of parameters in the model
-print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
 
-# create a PyTorch optimizer
-optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
+import time  # 导入 time 模块
+import torch  # 假设使用的是 PyTorch
+import sys  # 用于输出重定向
 
-for iter in range(max_iters):
+# 假设 decode 和 m 是提前定义的函数和模型
+# 请根据实际代码补充 decode 和 m 的定义
 
-    # every once in a while evaluate the loss on train and val sets
-    if iter % eval_interval == 0 or iter == max_iters - 1:
-        losses = estimate_loss()
-        print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
+import time
+import torch
+import sys
+import os
 
-    # sample a batch of data
-    xb, yb = get_batch('train')
+if __name__ == "__main__":
+    # 完全重定向输出
+    sys.stdout = open("output.txt", "w", buffering=1)  # 行缓冲
+    sys.stderr = sys.stdout
+    os.dup2(sys.stdout.fileno(), 1)
+    os.dup2(sys.stderr.fileno(), 2)
 
-    # evaluate the loss
-    logits, loss = model(xb, yb)
-    optimizer.zero_grad(set_to_none=True)
-    loss.backward()
-    optimizer.step()
+    start_time = time.time()  # 记录开始时间
 
-# generate from the model
-context = torch.zeros((1, 1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
-#open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
+    ##### Model
+
+    model = GPTLanguageModel()
+    m = model.to(device)
+    # print the number of parameters in the model
+    print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
+
+    # create a PyTorch optimizer
+    optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
+
+    for iter in range(max_iters):
+
+        # every once in a while evaluate the loss on train and val sets
+        if iter % eval_interval == 0 or iter == max_iters - 1:
+            losses = estimate_loss()
+            print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
+
+        # sample a batch of data
+        xb, yb = get_batch('train')
+
+        # evaluate the loss
+        logits, loss = model(xb, yb)
+        optimizer.zero_grad(set_to_none=True)
+        loss.backward()
+        optimizer.step()
+
+
+    #####
+
+    print("Generated text:")
+
+    context = torch.zeros((1, 1), dtype=torch.long, device=device)
+
+    try:
+        generated_text = decode(m.generate(context, max_new_tokens=100)[0].tolist())
+        print(generated_text)
+
+        with open('more.txt', 'w') as f:
+            more_text = decode(m.generate(context, max_new_tokens=10000)[0].tolist())
+            f.write(more_text)
+    except Exception as e:
+        print(f"Error during text generation: {e}")
+
+    end_time = time.time()  # 记录结束时间
+
+    print(f"Start time: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(start_time))}")
+    print(f"End time: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(end_time))}")
+    print(f"Duration: {end_time - start_time:.2f} seconds")
+
+    # 确保重定向文件正确关闭
+    sys.stdout.close()
+    sys.stderr.close()
